@@ -43,6 +43,7 @@
     * [Получение полной иерархии подразделений](#Получение-полной-иерархии-подразделений)
     * [Получение иерархии подразделений вниз, начиная с конкретного подразделения](#Получение-иерархии-подразделений-вниз-начиная-с-конкретного-подразделения)
     * [Получаем список подразделений по иерархии вверх, включая само подразделение](#Получаем-список-подразделений-по-иерархии-вверх-включая-само-подразделение)
+    * [Получаем значения XML узлов и собираем в строку через разделитель](#Получаем-значения-XML-узлов-и-собираем-в-строку-через-разделитель)
 ## Вступление
 
 Для работы с XML документом в T-SQL используются следующие методы:
@@ -989,3 +990,60 @@ FROM    tree A
 
 **Результат:**  
 ![taskbook_2](./img/taskbook_6_2.jpg)
+
+### Получаем значения XML узлов и собираем в строку через разделитель
+
+Предположим, что нам понадобилось отправить на "клиент" все совершенные действия над заявкой. Нужные нам данные находятся в карточке заявки на вкладке "Документооборот" в разделе "История вызова действий":
+![img.png](img/taskbook_7_1.png)
+
+XML структура выглядит следующим образом (лишние узлы удалены):
+```xml
+<request>
+    <id>0x6017A42E7D874F79</id>
+    <code>ir1188556</code>
+    <request_type_id>0x5DD3E62241FA382E</request_type_id>
+    <status_id>ignore</status_id>
+  <workflow_log_entrys>
+    <workflow_log_entry>
+      <create_date>2021-02-01T09:48:15+00:00</create_date>
+      <action_id>dafault_action</action_id>
+    </workflow_log_entry>
+    <workflow_log_entry>
+      <create_date>2021-02-16T08:32:00+00:00</create_date>
+      <action_id>save_request</action_id>
+    </workflow_log_entry>
+    <workflow_log_entry>
+      <create_date>2021-02-16T08:40:04+00:00</create_date>
+      <action_id>send_to_agree</action_id>
+    </workflow_log_entry>
+    <workflow_log_entry>
+      <create_date>2021-02-16T10:26:15+00:00</create_date>
+      <action_id>agree</action_id>
+    </workflow_log_entry>
+    <workflow_log_entry>
+      <create_date>2021-02-19T12:06:28+00:00</create_date>
+      <action_id>accept_in_work</action_id>
+    </workflow_log_entry>
+    <workflow_log_entry>
+      <create_date>2021-02-19T12:14:35+00:00</create_date>
+      <action_id>by_edit</action_id>
+    </workflow_log_entry>
+    <workflow_log_entry>
+      <create_date>2021-02-24T10:08:03+00:00</create_date>
+      <action_id>cansel_request</action_id>
+    </workflow_log_entry>
+  </workflow_log_entrys>
+</request>
+```
+
+**Запрос:**
+
+```sql
+SELECT   id
+        ,A.data.query('for $elem in request/workflow_log_entrys/workflow_log_entry/action_id return <s>{concat($elem, ";")}</s>').value('.', 'varchar(max)')
+FROM    request A
+```
+
+**Результат**
+
+![img.png](img/taskbook_7_2.png)
