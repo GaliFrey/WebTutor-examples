@@ -5,3 +5,4 @@
 * [Добавление элементов в справочник "Учебный центр - Организационная форма мероприятия"](./src/addIteminHandbookOrganizationForms.js)
 * [Добавление элементов в справочник "Учебный центр - Форма проведения мероприятия"](./src/addIteminHandbookEventForms.js)
 * [Добавление элементов в справочник "Оценка персонала - Типы компетенций"](./src/addIteminHandbookCompetenceTypes.js)
+* [Подключение к БД через ADODBConnection](./src/ADODBConnection.js)
