@@ -921,12 +921,12 @@ function DeleteDoc(url, StrictDelete) {}
 /**
  * [Документация]{@link https://news.websoft.ru/_wt/wiki_base/6732306980015441861}
  */
-function FetchDoc(url, options) {}
+function FetchDoc(url, options) {return XmlDoc}
 
 /**
  * [Документация]{@link https://news.websoft.ru/_wt/wiki_base/6732307018445770144}
  */
-function GetCachedDoc(url) {}
+function GetCachedDoc(url) {return XmlDoc}
 
 /**
  * [Документация]{@link http://docs.datex.ru/article.htm?id=5620276905286592603}
@@ -956,27 +956,27 @@ function ObjectNameFromUrl(url) {}
 /**
  * [Документация]{@link https://news.websoft.ru/_wt/wiki_base/6732307233210249800}
  */
-function ObtainUiDoc(docUrl) {}
+function ObtainUiDoc(docUrl) {return XmlDoc}
 
 /**
  * [Документация]{@link https://news.websoft.ru/_wt/wiki_base/6732307270307567068}
  */
-function OpenDoc(url, options) {}
+function OpenDoc(url, options) {return XmlDoc}
 
 /**
  * [Документация]{@link https://news.websoft.ru/_wt/wiki_base/6732307305625689050}
  */
-function OpenDocFromStr(dataStr, options) {}
+function OpenDocFromStr(dataStr, options) {return XmlDoc}
 
 /**
  * [Документация]{@link https://news.websoft.ru/_wt/wiki_base/6732307353069963239}
  */
-function OpenNewDoc(formUrl) {}
+function OpenNewDoc(formUrl) {return XmlDoc}
 
 /**
  * [Документация]{@link https://news.websoft.ru/_wt/wiki_base/6732307395835072295}
  */
-function RegisterSharedDoc(docUrl) {}
+function RegisterSharedDoc(docUrl) {return XmlDoc}
 
 /**
  * [Документация]{@link https://news.websoft.ru/_wt/wiki_base/6732307429836946885}
@@ -1221,7 +1221,7 @@ function ModalTaskMsg(msg) {}
 /**
  * [Документация]{@link https://news.websoft.ru/_wt/wiki_base/6742435749484645073}
  */
-function OpenCodeLib(url) {}
+function OpenCodeLib(url) {return XmlDoc}
 
 /**
  * [Документация]{@link https://news.websoft.ru/_wt/wiki_base/6742435981492575637}

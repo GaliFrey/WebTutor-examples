@@ -63,7 +63,7 @@ tools.update_document_comment_entry = function(doc, iNewPortalDocIDParam) {};
  * [Документация]{@link https://news.websoft.ru/_wt/wiki_base/6680509179603262228}
  */
 tools.add_report = function(iActionReportIDParam, sTextParam,
-    docActionReportParam) {};
+    docActionReportParam) {return XmlDoc};
 
 /**
  * [Документация]{@link https://news.websoft.ru/_wt/wiki_base/6680509698768708638}
@@ -140,7 +140,7 @@ tools.package_process = function(_path, _type, _source, _report_id,
  */
 tools.activate_course_to_person = function(oPersonID, _course_id, _event_id,
     _person_doc, _education_plan_id, _duration, _start_learning_date,
-    dtLastLearningDateParam, _group_id, sEIDParam, bSkipDismissedParam) {};
+    dtLastLearningDateParam, _group_id, sEIDParam, bSkipDismissedParam) {return XmlDoc};
 
 /**
  * [Документация]{@link https://news.websoft.ru/_wt/wiki_base/6680515191667126627}
@@ -148,7 +148,7 @@ tools.activate_course_to_person = function(oPersonID, _course_id, _event_id,
 tools.activate_test_to_person = function(oPersonID, _test_id, _event_id,
     _person_doc, _test_doc, _event_doc, _duration, _start_learning_date,
     dtLastLearningDateParam, _group_id, _education_plan_id,
-    bSkipDismissedParam) {};
+    bSkipDismissedParam) {return XmlDoc};
 
 /**
  * [Документация]{@link https://news.websoft.ru/_wt/wiki_base/6680516059253972700}
@@ -371,7 +371,7 @@ tools.active_learning_finish = function(_learning_id, _source, _course_doc) {};
  * [Документация]{@link https://news.websoft.ru/_wt/wiki_base/6680770116768253029}
  */
 tools.active_test_learning_finish = function(
-    _learning_id, _source, _assessment_doc, iPersonIDParam, bFinishTest) {};
+    _learning_id, _source, _assessment_doc, iPersonIDParam, bFinishTest) {return XmlDoc};
 
 /**
  * TODO описание отсутствует на портале
@@ -415,7 +415,7 @@ tools.xml_header = function() {};
  * [Документация]{@link https://news.websoft.ru/_wt/wiki_base/6680771727157571114}
  */
 tools.annals_decrypt = function(oSourceParam, sQtiPathParam, sQtiTextParam,
-    bNoSendCorrectAnswerParam) {};
+    bNoSendCorrectAnswerParam) {return XmlDoc};
 
 /**
  * [Документация]{@link https://news.websoft.ru/_wt/wiki_base/6680771993714769757}
@@ -468,12 +468,12 @@ tools.obtain_lists = function(_url, _list_name) {};
 /**
  * [Документация]{@link https://news.websoft.ru/_wt/wiki_base/6680773753934066054}
  */
-tools.event_finish = function(_event_id, _event_doc, oScreenParam) {};
+tools.event_finish = function(_event_id, _event_doc, oScreenParam) {return XmlDoc};
 
 /**
  * [Документация]{@link https://news.websoft.ru/_wt/wiki_base/6680773918082355027}
  */
-tools.event_start = function(_event_id, _event_doc, oScreenParam) {};
+tools.event_start = function(_event_id, _event_doc, oScreenParam) {return XmlDoc};
 
 /**
  * [Документация]{@link https://news.websoft.ru/_wt/wiki_base/6680774105841874686}
@@ -509,7 +509,7 @@ tools.create_list_package = function(sResultUrlParam, fldPackage) {};
 /**
  * [Документация]{@link https://news.websoft.ru/_wt/wiki_base/6680785092960219498}
  */
-tools.get_doc_by_key = function(sObjectNameParam, oKeyParam, oKeyValueParam) {};
+tools.get_doc_by_key = function(sObjectNameParam, oKeyParam, oKeyValueParam) {return XmlDoc};
 
 /**
  * [Документация]{@link https://news.websoft.ru/_wt/wiki_base/6680785427788491269}
@@ -635,13 +635,13 @@ tools.request_rejecting = function(
  */
 tools.add_person_to_event = function(iPersonIDParam, iEventIDParam,
     tePersonParam, docEventParam, iEducationPlanIDParam, iRequestPersonIDParam,
-    iRequestIDParam) {};
+    iRequestIDParam) {return XmlDoc};
 
 /**
  * [Документация]{@link https://news.websoft.ru/_wt/wiki_base/6680801090538073152}
  */
 tools.del_person_from_event = function(
-    _person_id, _event_id, _doc_event, _flag_save) {};
+    _person_id, _event_id, _doc_event, _flag_save) {return XmlDoc};
 
 /**
  * [Документация]{@link https://news.websoft.ru/_wt/wiki_base/6680801735792656902}
@@ -929,7 +929,7 @@ tools.get_report_storage_field = function(sDatatype) {};
  * [Документация]{@link https://news.websoft.ru/_wt/wiki_base/6680809573922318063}
  */
 tools.build_report_remote = function(
-    REPORT_ID, PS, docReportParam, sLngSHORT, bMetaOnly) {};
+    REPORT_ID, PS, docReportParam, sLngSHORT, bMetaOnly) {return XmlDoc};
 
 /**
  * [Документация]{@link https://news.websoft.ru/_wt/wiki_base/6680809715802729738}
@@ -972,7 +972,7 @@ tools.convert_email_from_x40 = function(_x40_email, _end_mail) {};
  * [Документация]{@link https://news.websoft.ru/_wt/wiki_base/6680810876058166678}
  */
 tools.add_person_to_assessment_appraise = function(_person_id,
-    _assessment_appraise_id, _person_doc, _doc_assessment_appraise) {};
+    _assessment_appraise_id, _person_doc, _doc_assessment_appraise) {return XmlDoc};
 
 /**
  * [Документация]{@link https://news.websoft.ru/_wt/wiki_base/6680811029584963528}
@@ -1003,13 +1003,13 @@ tools.register_doc_type = function(docDocTypePARAM, iDocIDParam) {};
  * [Документация]{@link https://news.websoft.ru/_wt/wiki_base/6680811755365477816}
  */
 tools.create_certificate_to_event = function(
-    _even_id, _type_id, _doc_event, bCreateByNotAssist) {};
+    _even_id, _type_id, _doc_event, bCreateByNotAssist) {return XmlDoc};
 
 /**
  * [Документация]{@link https://news.websoft.ru/_wt/wiki_base/6680811944801300556}
  */
 tools.create_certificate_to_person = function(
-    _person_id, _type_id, _event_id, _person_doc, _type_doc, _event_doc) {};
+    _person_id, _type_id, _event_id, _person_doc, _type_doc, _event_doc) {return XmlDoc};
 
 /**
  * [Документация]{@link https://news.websoft.ru/_wt/wiki_base/6680812074392356328}
@@ -1025,7 +1025,7 @@ tools.assign_qualification_to_person = function(_person_id, _event_id,
     _qualification_test_array, _qualification_course_array, _send_mail,
     _in_process, bAssignTestsParam, bAssignCoursesParam,
     bUnconditionalAssignmentParam, _qualification_assignment_doc,
-    teQualification, tePerson, bGivePointParam) {};
+    teQualification, tePerson, bGivePointParam) {return XmlDoc};
 
 /**
  * [Документация]{@link https://news.websoft.ru/_wt/wiki_base/6680812386543364011}
@@ -1072,7 +1072,7 @@ tools.get_uni_user_bosses = function(objectParam, oParams) {};
 /**
  * [Документация]{@link https://news.websoft.ru/_wt/wiki_base/6680813332686004945}
  */
-tools.get_uni_user_boss = function(objectParam, oParams) {};
+tools.get_uni_user_boss = function(objectParam, oParams) {return XmlDoc};
 
 /**
  * [Документация]{@link https://news.websoft.ru/_wt/wiki_base/6680813491126744170}
@@ -1756,7 +1756,7 @@ tools.extract_bfields_by_list = function(
 /**
  * [Документация]{@link https://news.websoft.ru/_wt/wiki_base/6774656627662784303}
  */
-tools.get_opened_doc = function(teObjectParam) {};
+tools.get_opened_doc = function(teObjectParam) {return XmlDoc};
 
 /**
  * [Документация]{@link https://news.websoft.ru/_wt/wiki_base/6774657044044278930}
@@ -1773,7 +1773,7 @@ tools.set_project_participant_type = function(iProjectParticipantIDParam,
  * [Документация]{@link https://news.websoft.ru/_wt/wiki_base/6774671741588351565}
  */
 tools.create_project_participant = function(iObjectIDParam, teObjectParam,
-    iProjectIDParam, iBossTypeIDParam, bWithoutAgreement) {};
+    iProjectIDParam, iBossTypeIDParam, bWithoutAgreement) {return XmlDoc};
 
 /**
  * [Документация]{@link https://news.websoft.ru/_wt/wiki_base/6774672000538510598}
@@ -1998,7 +1998,7 @@ tools.assign_from_object = function(fldTarget, oSourceParam) {};
 /**
  * [Документация]{@link https://news.websoft.ru/_wt/wiki_base/6825300336575741439}
  */
-tools.open_doc = function(iDocID) {};
+tools.open_doc = function(iDocID) {return XmlDoc};
 
 /**
  * TODO описание отсутствует на портале
