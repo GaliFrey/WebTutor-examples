@@ -26,7 +26,7 @@ Request.AuthLogin = '';
 /**
  * [Документация]{@link https://news.websoft.ru/_wt/wiki_base/6753067343200001503}
  */
-Request.AuthObject = {};
+Request.AuthObject = XmlElem;
 
 /**
  * [Документация]{@link https://news.websoft.ru/_wt/wiki_base/6753067549329800053}
@@ -226,8 +226,7 @@ Response.Write = function(str, encode) {
 /**
  * [Документация]{@link https://news.websoft.ru/_wt/wiki_base/6755359223412627725}
  */
-Response.WriteBinary = function(data) {
-};
+Response.WriteBinary = function(data) {return XmlElem};
 
 /**
  * [Документация]{@link https://news.websoft.ru/_wt/wiki_base/6751741087301389860}

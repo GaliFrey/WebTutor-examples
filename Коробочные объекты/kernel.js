@@ -986,12 +986,12 @@ function UpdateUiDoc(doc) {}
 /**
  * [Документация]{@link https://news.websoft.ru/_wt/wiki_base/6733434413151367153}
  */
-function CreateElem(formUrl, elemPath) {}
+function CreateElem(formUrl, elemPath) {return XmlElem}
 
 /**
  * [Документация]{@link https://news.websoft.ru/_wt/wiki_base/6733434218692300578}
  */
-function CreateDynamicElem(name, type) {}
+function CreateDynamicElem(name, type) {return XmlElem}
 
 /**
  * [Документация]{@link https://news.websoft.ru/_wt/wiki_base/6733434615232085863}
@@ -1001,17 +1001,17 @@ function ExportElemsToStr(objArray) {}
 /**
  * [Документация]{@link https://news.websoft.ru/_wt/wiki_base/6733434932930287074}
  */
-function GetForeignElem(objArray, keyVal) {}
+function GetForeignElem(objArray, keyVal) {return XmlElem}
 
 /**
  * [Документация]{@link https://news.websoft.ru/_wt/wiki_base/6733434768846236638}
  */
-function GetFailedForeignElem(catalogue) {}
+function GetFailedForeignElem(catalogue) {return XmlElem}
 
 /**
  * [Документация]{@link https://news.websoft.ru/_wt/wiki_base/6733435100133878819}
  */
-function GetOptForeignElem(objArray, keyVal) {}
+function GetOptForeignElem(objArray, keyVal) {return XmlElem}
 
 /**
  * [Документация]{@link https://news.websoft.ru/_wt/wiki_base/6733435284563242118}
@@ -1101,7 +1101,7 @@ function ObtainObjectDocScreen(base, catalog, docID, xmsUrl) {}
 /**
  * [Документация]{@link https://news.websoft.ru/_wt/wiki_base/6736405791292800178}
  */
-function ObtainSubDocScreen(docElem, xmsUrl) {}
+function ObtainSubDocScreen(docElem, xmsUrl) {return XmlElem}
 
 /**
  * [Документация]{@link https://news.websoft.ru/_wt/wiki_base/6736405966528859597}
@@ -1376,12 +1376,12 @@ function LogEvent(name, text) {}
 /**
  * [Документация]{@link https://news.websoft.ru/_wt/wiki_base/6746897987868262141}
  */
-function MailMessage() {}
+function MailMessage() {return XmlElem}
 
 /**
  * [Документация]{@link https://news.websoft.ru/_wt/wiki_base/6746898194382878622}
  */
-function MailMessageFromMimeStr(mimeData) {}
+function MailMessageFromMimeStr(mimeData) {return XmlElem}
 
 /**
  * [Документация]{@link https://news.websoft.ru/_wt/wiki_base/6746898408083190218}

@@ -389,7 +389,7 @@ tools.active_test_learning_finish_attempt = function(_learning_id,
 /**
  * [Документация]{@link https://news.websoft.ru/_wt/wiki_base/6680770584753353621}
  */
-tools.core_decrypt = function(_core, _qti_path, _qti_text, _learning_doc) {};
+tools.core_decrypt = function(_core, _qti_path, _qti_text, _learning_doc) {return XmlElem};
 
 /**
  * [Документация]{@link https://news.websoft.ru/_wt/wiki_base/6680770855518021837}
@@ -578,7 +578,7 @@ tools.get_version = function(_type, bDateFlag) {};
 /**
  * [Документация]{@link https://news.websoft.ru/_wt/wiki_base/6680799737529721815}
  */
-tools.get_custom_template = function(_catalog, _top_id, _source) {};
+tools.get_custom_template = function(_catalog, _top_id, _source) {return XmlElem};
 
 /**
  * [Документация]{@link https://news.websoft.ru/_wt/wiki_base/6680799892463164066}
