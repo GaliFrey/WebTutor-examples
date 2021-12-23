@@ -1351,7 +1351,7 @@ function GetSysUserName() {}
 /**
  * [Документация]{@link https://news.websoft.ru/_wt/wiki_base/6746897202079009348}
  */
-function HttpRequest(url, method, body, fields) {}
+function HttpRequest(url, method, body, fields) {return HttpResponse}
 
 /**
  * [Документация]{@link http://docs.datex.ru/article.htm?id=5665465792879477127}
