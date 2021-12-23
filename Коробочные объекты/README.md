@@ -13,3 +13,4 @@
 6. Файл **[web_object](web_object.js)** - содержит объекты Web-сервера
 7. Файл **[binary](binary.js)** - содержит объект Binary
 8. Файл **[xml_doc](xml_doc.js)** - содержит объект XmlDoc
+9. Файл **[xml_elem](xml_elem.js)** - содержит объект XmlElem
