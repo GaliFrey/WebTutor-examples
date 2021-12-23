@@ -12,3 +12,4 @@
 5. Файл **[ms_tools](ms_tools.js)** - содержит функции библиотеки ms_tools
 6. Файл **[web_object](web_object.js)** - содержит объекты Web-сервера
 7. Файл **[binary](binary.js)** - содержит объект Binary
+8. Файл **[xml_doc](xml_doc.js)** - содержит объект XmlDoc
