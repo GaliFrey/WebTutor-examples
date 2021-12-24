@@ -4,11 +4,6 @@
 Stream = {};
 
 /**
- * [Документация]{@link https://news.websoft.ru/_wt/wiki_base/6751755402180045200}
- */
-Session = {};
-
-/**
  * [Документация]{@link https://news.websoft.ru/_wt/wiki_base/6751754944370642451}
  */
 Request = {};
@@ -16,7 +11,7 @@ Request = {};
 /**
  * [Документация]{@link https://news.websoft.ru/_wt/wiki_base/6753066940245158862}
  */
-Request.AllSessions = [];
+Request.AllSessions = [Session];
 
 /**
  * [Документация]{@link https://news.websoft.ru/_wt/wiki_base/6753067153921293565}
@@ -226,7 +221,7 @@ Response.Write = function(str, encode) {
 /**
  * [Документация]{@link https://news.websoft.ru/_wt/wiki_base/6755359223412627725}
  */
-Response.WriteBinary = function(data) {return XmlElem};
+Response.WriteBinary = function(data) {return XmlElem;};
 
 /**
  * [Документация]{@link https://news.websoft.ru/_wt/wiki_base/6751741087301389860}
