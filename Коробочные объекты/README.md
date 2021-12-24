@@ -15,3 +15,4 @@
 8. Файл **[xml_doc](xml_doc.js)** - содержит объект XmlDoc
 9. Файл **[xml_elem](xml_elem.js)** - содержит объект XmlElem
 10. Файл **[xml_form](xml_form.js)** - содержит объект XmlForm
+11. Файл **[xml_form_elem](xml_form_elem.js)** - содержит объект XmlFormElem
