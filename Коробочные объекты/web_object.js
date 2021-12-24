@@ -1,9 +1,4 @@
 /**
- * [Документация]{@link https://news.websoft.ru/_wt/wiki_base/6751741852966527336}
- */
-Stream = {};
-
-/**
  * [Документация]{@link https://news.websoft.ru/_wt/wiki_base/6751741087301389860}
  */
 HttpResponse = {};
