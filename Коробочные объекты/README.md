@@ -21,3 +21,5 @@ IDE. Созданы с одной целью - предоставить подс
 14. Файл **[xml_form](xml_form.js)** - содержит объект XmlForm
 15. Файл **[xml_form_elem](xml_form_elem.js)** - содержит объект XmlFormElem
 16. Файл **[xml_multi_elem](xml_multi_elem.js)** - содержит объект XmlMultiElem
+17. Файл **[screen](screen.js)** - содержит объект Screen
+18. Файл **[screen_item](screen_item.js)** - содержит объект ScreenItem
