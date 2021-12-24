@@ -811,7 +811,7 @@ function WebAppUrl(url) {}
 /**
  * [Документация]{@link https://news.websoft.ru/_wt/wiki_base/6725825822117149159}
  */
-function CreateFormElem(name, type) {return XmlForm}
+function CreateFormElem(name, type) {return XmlFormElem}
 
 /**
  * [Документация]{@link https://news.websoft.ru/_wt/wiki_base/6725825856065447944}
