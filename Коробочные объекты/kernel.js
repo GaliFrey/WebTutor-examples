@@ -811,7 +811,7 @@ function WebAppUrl(url) {}
 /**
  * [Документация]{@link https://news.websoft.ru/_wt/wiki_base/6725825822117149159}
  */
-function CreateFormElem(name, type) {}
+function CreateFormElem(name, type) {return XmlForm}
 
 /**
  * [Документация]{@link https://news.websoft.ru/_wt/wiki_base/6725825856065447944}
@@ -826,17 +826,17 @@ function DropFormsCache(urlPattern) {}
 /**
  * [Документация]{@link https://news.websoft.ru/_wt/wiki_base/6725825921547589070}
  */
-function FetchForm(formUrl) {}
+function FetchForm(formUrl) {return XmlForm}
 
 /**
  * [Документация]{@link https://news.websoft.ru/_wt/wiki_base/6725825955365719159}
  */
-function GetOptAutoDocForm(docUrl) {}
+function GetOptAutoDocForm(docUrl) {return XmlForm}
 
 /**
  * [Документация]{@link https://news.websoft.ru/_wt/wiki_base/6725825989203854291}
  */
-function GetOptCachedForm(formUrl) {}
+function GetOptCachedForm(formUrl) {return XmlForm}
 
 /**
  * [Документация]{@link https://news.websoft.ru/_wt/wiki_base/6725826018743813476}
@@ -846,7 +846,7 @@ function RegisterAutoDoc(docUrl, formUrl) {}
 /**
  * [Документация]{@link https://news.websoft.ru/_wt/wiki_base/6725826054892124910}
  */
-function RegisterFormFromStr(formUrl, formData) {}
+function RegisterFormFromStr(formUrl, formData) {return XmlForm}
 
 /**
  * [Документация]{@link https://news.websoft.ru/_wt/wiki_base/6725826084391823139}
