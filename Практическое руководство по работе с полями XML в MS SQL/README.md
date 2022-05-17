@@ -1047,3 +1047,25 @@ FROM    request A
 **Результат**
 
 ![img.png](img/taskbook_7_2.png)
+
+### Удаление узлов без дочерних элементов
+
+Проблема - пустые узлы custom_elem
+![img.png](img/taskbook_8_1.png)
+
+Для удаления пустых узлов в XML можно использовать функцию ```node()```, которая возвращает все дочерние узлы.
+
+Запрос:
+```sql
+UPDATE  collaborator
+SET     data.modify('
+          delete
+          (collaborator/custom_elems/custom_elem[count(node())=0])
+        ')
+WHERE   data.value('count(collaborator/custom_elems/custom_elem[count(node())=0])', 'int') > 0
+```
+
+Результат:
+
+Удаление всех узлов custom_elem, у которых отсутствуют дочерние элементы
+![img.png](img/taskbook_8_2.png)
