@@ -488,15 +488,13 @@ return
 ```
 **SQL**
 ```SQL
-select	t_elem.[id], 
-	t_elem.[fullname] 
+SET DATEFORMAT dmy;  
+select	t_elem.[id], t_elem.[fullname], t_elem.[hire_date] 
 from	dbo.[collaborators] t_elem    
-where	(( t_elem.[is_dismiss] = 0) OR (( t_elem.[is_dismiss]) IS NULL)) 
-	or  t_elem.[is_dismiss] = 1 
-	or  t_elem.[is_dismiss] IS NULL 
+where	t_elem.[hire_date] = '17.03.2010 0:00:00 '
 ```
 **Результат (объект массива)**  
-![](./img/2023-06-21_115827.jpg)
+![](./img/2023-06-28_224932.jpg)
 
 ### Запрос иерархии с использованием IsHierChild()
 * Перед функцией `IsHierChild` обязательно должен стоять пробел, иначе ошибка, знак табуляции не принимает
