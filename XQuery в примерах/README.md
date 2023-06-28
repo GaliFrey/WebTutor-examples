@@ -491,7 +491,7 @@ return
 SET DATEFORMAT dmy;  
 select	t_elem.[id], t_elem.[fullname], t_elem.[hire_date] 
 from	dbo.[collaborators] t_elem    
-where	t_elem.[hire_date] = '17.03.2010 0:00:00 '
+where	t_elem.[hire_date] = '17.03.2010 0:00:00'
 ```
 **Результат (объект массива)**  
 ![](./img/2023-06-28_224932.jpg)
