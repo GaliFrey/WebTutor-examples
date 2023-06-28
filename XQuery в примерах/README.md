@@ -28,6 +28,10 @@
 		- [Запрос с использованием MatchSome()](#запрос-с-использованием-matchsome)
 		- [Запрос с использованием CatalogHierSubset()](#запрос-с-использованием-cataloghiersubset)
 		- [Запрос с использованием IsEmpty()](#запрос-с-использованием-isempty)
+		- [Запрос к нескольким таблицам через ljoin/on (LEFT JOIN)](#запрос-к-нескольким-таблицам-через-ljoinon-left-join)
+		- [Запрос к нескольким таблицам через rjoin/on (RIGHT JOIN)](#запрос-к-нескольким-таблицам-через-rjoinon-right-join)
+		- [Запрос к нескольким таблицам через join/on (INNER JOIN)](#запрос-к-нескольким-таблицам-через-joinon-inner-join)
+		- [Запрос с исключением записей через MatchSome](#запрос-с-исключением-записей-через-matchsome)
 
 
 ## Предисловие
@@ -814,3 +818,96 @@ WHERE	(case when [t_elem].[birth_date] IS NULL then 1 else 0 end) = 1
 ```
 **Результат**  
 ![](./img/2023-06-21_150117.jpg)
+
+### Запрос к нескольким таблицам через ljoin/on (LEFT JOIN)
+* Обратите внимание на порядок таблиц в `XQuery` запросе и в каком порядке они оказались собраны в `SQL` запросе, `ljoin` джойнит правую таблицу `collaborators` к левой `positions`
+
+**XQuery**
+```XQuery
+for
+	$pos in positions ljoin $elem in collaborators   
+		on $elem/position_id = $pos/id
+where
+	MatchSome($elem/code, ('13744', '386792'))
+return
+	$elem/id, $pos/name
+```
+**SQL**
+```SQL
+select	t_elem.[id], t_pos.[name] 
+from	dbo.[collaborators] t_elem 
+	LEFT JOIN dbo.[positions] t_pos on t_elem.[position_id] = t_pos.[id]  
+where	(t_elem.[code] in ('13744', '386792')) 
+```
+**Результат**  
+![](./img/2023-06-28_210320.jpg)
+
+### Запрос к нескольким таблицам через rjoin/on (RIGHT JOIN)
+* Обратите внимание на порядок таблиц в `XQuery` запросе и в каком порядке они оказались собраны в `SQL` запросе, `rjoin` джойнит правую таблицу `collaborators` к левой `positions`
+
+**XQuery**
+```XQuery
+for
+	$pos in positions rjoin $elem in collaborators   
+		on $elem/position_id = $pos/id
+where
+	MatchSome($elem/code, ('13744', '386792'))
+return
+	$elem/id, $pos/name
+```
+**SQL**
+```SQL
+select	t_elem.[id], t_pos.[name] 
+from	dbo.[collaborators] t_elem 
+	RIGHT JOIN dbo.[positions] t_pos on t_elem.[position_id] = t_pos.[id]  
+where	(t_elem.[code] in (@p0,@p1)) ('13744', '386792')) 
+```
+**Результат**  
+![](./img/2023-06-28_210841.jpg)
+
+### Запрос к нескольким таблицам через join/on (INNER JOIN)
+* Обратите внимание на порядок таблиц в `XQuery` запросе и в каком порядке они оказались собраны в `SQL` запросе, `join` джойнит правую таблицу `collaborators` к левой `positions`
+* Обратите внимание, что в запросе `XQuery` между `Fields` нет запятой. При попытке поставить запятую, запрос выкидывает ошибку
+
+**XQuery**
+```XQuery
+for
+	$pos in positions join $elem in collaborators   
+		on $elem/position_id = $pos/id
+where
+	MatchSome($elem/code, ('13744', '386792'))
+return
+	$elem/Fields('id') $pos/Fields('name')
+```
+**SQL**
+```SQL
+select	t_elem.[id], t_pos.[name] 
+from	dbo.[collaborators] t_elem 
+	INNER JOIN dbo.[positions] t_pos on t_elem.[position_id] = t_pos.[id]  
+where	(t_elem.[code] in ('13744', '386792'))
+```
+**Результат**  
+![](./img/2023-06-28_211124.jpg)
+
+### Запрос с исключением записей через MatchSome
+* Обратите внимание на порядок таблиц в `XQuery` запросе и в каком порядке они оказались собраны в `SQL` запросе, `ljoin` джойнит правую таблицу `collaborators` к левой `collaborators`
+
+**XQuery**
+```XQuery
+for
+	$el in collaborators ljoin $elem in collaborators 
+		on $elem/id = $el/id and MatchSome($el/code, ('13744', '386792'))
+where
+	$el/id = null()
+return
+	$elem/Fields('id')
+```
+**SQL**
+```SQL
+select	t_elem.[id] 
+from	dbo.[collaborators] t_elem 
+	LEFT JOIN dbo.[collaborators] t_el on t_elem.[id]= t_el.[id] and (t_el.[code] in ('13744', '386792'))  
+where	t_el.[id] IS NULL
+```
+**Результат (объект массива)**  
+![](./img/2023-06-28_212456.jpg)
