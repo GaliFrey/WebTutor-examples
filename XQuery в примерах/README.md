@@ -21,7 +21,7 @@
 		- [Запрос с поиском по кастомному полю через doc-contains и contains по значению](#запрос-с-поиском-по-кастомному-полю-через-doc-contains-и-contains-по-значению)
 		- [Запрос с поиском по кастомному полю через doc-contains с приведением типов](#запрос-с-поиском-по-кастомному-полю-через-doc-contains-с-приведением-типов)
 		- [Запрос с использованием ForeignElem](#запрос-с-использованием-foreignelem)
-		- [Запрос с использованием true(), false(), null()](#запрос-с-использованием-true-false-null)
+		- [Запрос с использованием true(), false(), null(), ''](#запрос-с-использованием-true-false-null-)
 		- [Запрос с использованием date()](#запрос-с-использованием-date)
 		- [Запрос иерархии с использованием IsHierChild()](#запрос-иерархии-с-использованием-ishierchild)
 		- [Запрос иерархии с использованием IsHierChildOrSelf()](#запрос-иерархии-с-использованием-ishierchildorself)
@@ -46,6 +46,10 @@
 * [Видео с базовым объяснением](https://news.websoft.ru/_wt/library_material/7229691353611750340)
 * [Синтаксис XQuery запросов](https://news.websoft.ru/_wt/wiki_base/6680138390455715655)
 * [Запросы XQuery](https://news.websoft.ru/_wt/wiki_base/6901595202309143964)
+
+В примерах в блоке **`XQuery`** указан запрос XQuery, выполняющийся через `tools.xquery`
+
+В примерах в блоке **`SQL`** указан запрос SQL, в который транспилируется запрос **`XQuery`** ядром системы WebSoft
 
 ## Среда выполнения запросов
 Все запросы выполнены на сборке **`WebSoft HCM 2023.1.649`**, база данных **`MS SQL`**, **`LuceneFTIndex`** отключен (если индекс включен, то некоторые запросы SQL формируется иначе, в запрос подставляются сразу ИД объектов)
@@ -452,26 +456,35 @@ where	[f-1783245827].[name] = 'Тренер'
 **Результат (объект массива)**  
 ![](./img/2023-06-20_234920.jpg)
 
-### Запрос с использованием true(), false(), null()
+### Запрос с использованием true(), false(), null(), ''
 **XQuery**
 ```XQuery
 for
 	$elem in collaborators
 where
-	$elem/is_dismiss = false() or 
+	$elem/is_dismiss = false() or
+	$elem/is_dismiss != false() or
 	$elem/is_dismiss = true() or
-	$elem/is_dismiss = null()
-return 
+	$elem/is_dismiss != true() or
+	$elem/is_dismiss = null() or
+	$elem/is_dismiss != null() or
+	$elem/is_dismiss = '' or
+	$elem/is_dismiss != ''
+return
 	$elem/Fields('id', 'fullname')
 ```
 **SQL**
 ```SQL
-select	t_elem.[id], 
-	t_elem.[fullname] 
+select	t_elem.[id], t_elem.[fullname] 
 from	dbo.[collaborators] t_elem    
-where	(( t_elem.[is_dismiss] = 0) OR (( t_elem.[is_dismiss]) IS NULL)) 
-	or  t_elem.[is_dismiss] = 1 
-	or  t_elem.[is_dismiss] IS NULL 
+where	(t_elem.[is_dismiss] = 0 OR t_elem.[is_dismiss] IS NULL) or -- $elem/is_dismiss = false()
+	t_elem.[is_dismiss] <> 0 or -- $elem/is_dismiss != false()
+	t_elem.[is_dismiss] = 1 or -- $elem/is_dismiss = true()
+	(t_elem.[is_dismiss] <> 1 OR t_elem.[is_dismiss] IS NULL) or -- $elem/is_dismiss != true()
+	t_elem.[is_dismiss] IS NULL or -- $elem/is_dismiss = null()
+	t_elem.[is_dismiss] IS NOT NULL or -- $elem/is_dismiss != null()
+	t_elem.[is_dismiss] IS NULL or -- $elem/is_dismiss = ''
+	t_elem.[is_dismiss] IS NOT NULL -- $elem/is_dismiss != ''
 ```
 **Результат (объект массива)**  
 ![](./img/2023-06-21_115827.jpg)
